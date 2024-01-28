@@ -8,7 +8,8 @@
 	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>下萩製作所</title>
-	<script src="slide.js"></script>
+	
+	<link rel="stylesheet" href="slide.css">
 </head>
 
 <body>
@@ -19,7 +20,9 @@
 			<ons-toolbar>
 				<div class="center"><img src="/brand/logo-color-wide.png" style="height:48px;margin:10px"></div>
 			</ons-toolbar>
+			<center>
 			<div id="imgslider" class="carousel"></div>
+			</center>
 				<ons-button id="push-button" class="button button--large--cta"
 					style="width: 95%; margin: 0 auto;">下萩製作所に連絡する</ons-button>
 
@@ -34,19 +37,19 @@
 				<div class="center"></div>
 			</ons-toolbar>
 
-			<p>This is the second page.</p>
+			<p>問い合わせ</p>
 		</ons-page>
 	</template>
 
 </body>
+<script src="slide.js"></script>
 <script>
-	window.onload=function(){
+	
   new Carousel(
-	"imgslider",
-	["https://html-generator.com/uploads/images/2024/01/27/35571MYPLQF9WX4.png","https://html-generator.com/uploads/images/2024/01/27/96961P8AMPKMSYW.jpg","https://html-generator.com/uploads/images/2024/01/27/803570VWTI3ZBM5.png"],
-	{ autoplay: '5000', imageSize: 'cover', transition: 'dissolve' }
+imgslider,
+  ['brand/35571MYPLQF9WX4.png','brand/96961P8AMPKMSYW.jpg']
   );
-	}
+	
 </script>
 <style>
 	#imgslider.carousel {
@@ -71,8 +74,6 @@
 	opacity: 0.5;
 }
 
-#imgslider .carousel__viewport-wrapper:hover .carousel__controls-background--indicator {
-	}
 
 #imgslider .carousel__viewport {
 	padding-bottom: 75%;
