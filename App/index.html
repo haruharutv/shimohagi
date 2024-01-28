@@ -2,13 +2,13 @@
 <html>
 
 <head>
+
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>下萩製作所</title>
-	<link rel="stylesheet" href="/ism/css/my-slider.css"/>
-    <script src="/ism/js/ism-2.2.min.js"></script>
+	<script src="slide.js"></script>
 </head>
 
 <body>
@@ -19,21 +19,7 @@
 			<ons-toolbar>
 				<div class="center"><img src="/brand/logo-color-wide.png" style="height:48px;margin:10px"></div>
 			</ons-toolbar>
-			<div class="ism-slider" data-image_fx="zoomrotate" id="my-slider">
-				<ol>
-				  <li>
-					<img src="/ism/image/slides/_u/1706404348985_334322.png">
-				  </li>
-				  <li>
-					<img src="/ism/image/slides/_u/1706404572526_50296.png">
-				  </li>
-				  <li>
-					<img src="/ism/image/slides/_u/1706404535974_126052.jpg">
-				  </li>
-				</ol>
-			  </div>
-			  <p class="ism-badge" id="my-slider-ism-badge"><a class="ism-link" href="http://imageslidermaker.com" rel="nofollow">generated with ISM</a></p>
-			  
+			<div id="imgslider" class="carousel"></div>
 				<ons-button id="push-button" class="button button--large--cta"
 					style="width: 95%; margin: 0 auto;">下萩製作所に連絡する</ons-button>
 
@@ -53,5 +39,104 @@
 	</template>
 
 </body>
+<script>
+	window.onload=function(){
+  new Carousel(
+	"imgslider",
+	["https://html-generator.com/uploads/images/2024/01/27/35571MYPLQF9WX4.png","https://html-generator.com/uploads/images/2024/01/27/96961P8AMPKMSYW.jpg","https://html-generator.com/uploads/images/2024/01/27/803570VWTI3ZBM5.png"],
+	{ autoplay: '5000', imageSize: 'cover', transition: 'dissolve' }
+  );
+	}
+</script>
+<style>
+	#imgslider.carousel {
+	width: 85%;
+}
 
+#imgslider.carousel .prev {
+	transform: translate(0px, 0px);
+	opacity: 0;
+}
+
+#imgslider.carousel .queue {
+	transform: translate(0px, 0px);
+	opacity: 0;
+}
+
+#imgslider .carousel__viewport-wrapper {
+	border-radius: 4.5% / 6%;
+}
+
+#imgslider .carousel__viewport-wrapper:hover .carousel__controls-background--arrow {
+	opacity: 0.5;
+}
+
+#imgslider .carousel__viewport-wrapper:hover .carousel__controls-background--indicator {
+	}
+
+#imgslider .carousel__viewport {
+	padding-bottom: 75%;
+}
+
+#imgslider .carousel__slide-container {
+	background-color: black;
+	transition: opacity 0.4s ease-in-out 0s;
+}
+
+#imgslider .carousel__slide-overlay {
+	background-color: rgb(255, 255, 255);
+	opacity: 0.05;
+	display: block;
+}
+
+#imgslider .carousel__indicator-bar {
+	visibility: visible;
+}
+
+#imgslider .carousel__indicator-bar--interior:hover .carousel__controls-background--indicator {
+	opacity: 0.5;
+}
+
+#imgslider .carousel__indicator-marker {
+	border: 1px solid rgb(255, 255, 255);
+	opacity: 0.6;
+	background-color: transparent;
+}
+
+#imgslider .carousel__indicator-marker--active {
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgb(255, 255, 255) 0px 0px 5px 0px;
+	pointer-events: none;
+	opacity: 1;
+	border: 1px solid rgb(255, 255, 255);
+}
+
+#imgslider .carousel__controls svg {
+	opacity: 0.6;
+}
+
+#imgslider .carousel__controls path {
+	stroke: rgb(255, 255, 255);
+}
+
+#imgslider .carousel__controls-background {
+	background-color: rgb(0, 0, 0);
+}
+
+#imgslider .carousel__controls-background::after {
+	background-color: rgb(0, 0, 0);
+}
+
+#imgslider .carousel__controls-background--arrow {
+	box-shadow: rgb(0, 0, 0) 0px 0px 8px 9px;
+	opacity: 0;
+	display: none;
+}
+
+#imgslider .carousel__controls-background--indicator {
+	box-shadow: rgb(0, 0, 0) 0px 0px 8px 9px;
+	opacity: 0;
+	display: none;
+}
+</style>
 </html>
