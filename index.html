@@ -102,11 +102,11 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="height:50%;background-image:url(brand/96961P8AMPKMSYW.jpg);   background-position: center center;background-repeat: no-repeat;">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0"><img src="/brand/logo-color-wide.png" style="height:40px;background:#fff;"></h3>
+      <h3 class="float-md-start mb-0"><img src="/brand/logo-color-wide.png" style="height:40px;background:#fff;border-radius: 10px;"></h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">ホーム</a>
         <a class="nav-link fw-bold py-1 px-0" href="#">下萩worksについて</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">お問い合わせ</a>
+        <a class="nav-link fw-bold py-1 px-0" href="#contact">お問い合わせ</a>
       </nav>
     </div>
   </header>
@@ -118,8 +118,44 @@
       <a href="/App" class="btn btn-lg btn-light fw-bold border-white bg-white">アプリを開く</a>
     </p>
   </main>
+  <div id="contact" style="box-shadow: 0px 0px 15px -5px #777777;color:#fff;padding:30px;background: linear-gradient(17deg, rgba(6,5,0,1) 0%, #202f55 68%, rgba(80,79,75,1) 98%);">
+    <h2>お問い合わせ</h2>
+<b>下萩worksへのお問い合わせはこちらのフォームへお願いします</b>
 
+<label for="namebox">お名前</label><br>
+<input id="namebox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;">
+<br>
+<label for="mailbox">メール (「はるはるメール」のアドレスです)<a href="https://haruharutv.jp/service/haruharumail.html" style="color:gray;font-size:small;text-decoration:none;">詳細</a></label><br>
+<input id="mailbox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;">
+<br>
+<center><button class="jim" onclick="subs()" style="transition: 0.8s ease;display:inline-block;margin-top:20px;text-decoration:none;color:#fff;padding:15px;border:2px solid;border-radius:8px;">送信</button></center>
 </div>
+</div>
+<script>
+document.getElementById("oas").style.display="none";
+var nname = document.getElementById("namebox");
+var ccontent = document.getElementById("contentbox");
+var eemail = document.getElementById("mailbox");
+function subs(){
+if(nname.value=="" | ccontent.value== "" | nname.value==""){
+alert("入力されていない欄があります。");
+}else{
+document.getElementById("oas").style.display="block";
+document.getElementById("oas").innerHTML="通信中...";
+$.ajax({
+    type: "POST",
+    url: "https://script.google.com/macros/s/AKfycbz8bKs5XBK4BhhoPinv4OH1dumqGc0ftGtUKqXhdKTWx_AtWUR6F_VWIDD_n0ln4p8h5Q/exec",
+    data: { sname: nname.value,uuids:localStorage.getItem("auth-uuid"),hmail:eemail.value,naiyou:ccontent.value},
+     async : true
+  }).done(function (data) {
+      var parmdata = data.split(',');
+      localStorage.setItem(parmdata[0],parmdata[1]);
+alert("送信に成功しました！\n返信があるまでしばらくお待ちください！");
+history.back();
+  });
+}
+}
+</script>
 
     </body>
 
