@@ -171,7 +171,7 @@ $.ajax({
       var parmdata = data.split(',');
       localStorage.setItem(parmdata[0],parmdata[1]);
 alert("送信に成功しました！\n返信があるまでしばらくお待ちください！");
-history.back();
+location.reload();
   });
 }
 }
