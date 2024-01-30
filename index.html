@@ -81,7 +81,7 @@
     }
   </style>
 
-<body class="d-flex h-100 text-center text-bg-dark">
+<body class="h-100 text-center text-bg-dark">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -137,7 +137,7 @@
 
 
 <script>
-document.getElementById("oas").style.display="none";
+
 var nname = document.getElementById("namebox");
 var ccontent = document.getElementById("contentbox");
 var eemail = document.getElementById("mailbox");
@@ -145,8 +145,7 @@ function subs(){
 if(nname.value=="" | ccontent.value== "" | nname.value==""){
 alert("入力されていない欄があります。");
 }else{
-document.getElementById("oas").style.display="block";
-document.getElementById("oas").innerHTML="通信中...";
+
 $.ajax({
     type: "POST",
     url: "https://script.google.com/macros/s/AKfycbz8bKs5XBK4BhhoPinv4OH1dumqGc0ftGtUKqXhdKTWx_AtWUR6F_VWIDD_n0ln4p8h5Q/exec",
