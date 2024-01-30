@@ -125,10 +125,10 @@
     <h2>お問い合わせ</h2>
 <b>下萩worksへのお問い合わせはこちらのフォームへお願いします</b><br>
 
-<label for="namebox">お名前</label>
+<label for="namebox">お名前</label><br>
 <input id="namebox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;">
 <br>
-<label for="mailbox">メール <a href="https://haruharutv.jp/service/haruharumail.html" style="color:gainsboro;font-size:small;text-decoration:none;">詳細</a></label>
+<label for="mailbox">メール <a href="https://haruharutv.jp/service/haruharumail.html" style="color:gainsboro;font-size:small;text-decoration:none;">詳細</a></label><br>
 <input id="mailbox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;">
 <br>
 <label for="contentbox">内容 Content</label>
@@ -136,12 +136,15 @@
 <textarea id="contentbox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;"></textarea>
 <script>
 
+
   document.getElementById("mailbox").value=localStorage.getItem("h-mail");
-  //ID指定
-  //if(localStorage.getItem("usemail")){
-  //document.getElementById("mailbox").setAttribute("readonly","true");
-  //document.getElementById("mailbox").style.backgroundColor="gainsboro";
-  //}
+//ログイン処理
+if(localStorage.getItem("h-mail")){
+
+}else{
+  location.href="https://haruharutv.jp/api/login-v1";
+}
+
  </script>
 
 <center><button class="jim" onclick="subs()" style="background:none;transition: 0.8s ease;display:inline-block;margin-top:20px;text-decoration:none;color:#fff;padding:15px;border:2px solid;border-radius:8px;">送信</button></center>
