@@ -160,7 +160,7 @@ if(localStorage.getItem("h-mail")){
 
  </script>
 
-<center><button class="jim" onclick="subs()" style="background:none;transition: 0.8s ease;display:inline-block;margin-top:20px;text-decoration:none;color:#fff;padding:15px;border:2px solid;border-radius:8px;">送信</button></center>
+<center><button class="jim" onclick="subs()" id="dba" style="background:none;transition: 0.8s ease;display:inline-block;margin-top:20px;text-decoration:none;color:#fff;padding:15px;border:2px solid;border-radius:8px;">送信</button></center>
 </div>
 </main>
 
@@ -170,17 +170,19 @@ if(localStorage.getItem("h-mail")){
 var nname = document.getElementById("namebox");
 var ccontent = document.getElementById("contentbox");
 var eemail = document.getElementById("mailbox");
+var dba = document.getElementById("dba");
 function subs(){
 if(nname.value=="" | ccontent.value== "" | nname.value==""){
 alert("入力されていない欄があります。");
 }else{
-
+dba.setAttribute("disabled",true);
 $.ajax({
     type: "POST",
     url: "https://script.google.com/macros/s/AKfycbz8bKs5XBK4BhhoPinv4OH1dumqGc0ftGtUKqXhdKTWx_AtWUR6F_VWIDD_n0ln4p8h5Q/exec",
     data: { sname: nname.value,uuids:localStorage.getItem("auth-uuid"),hmail:eemail.value,naiyou:ccontent.value},
      async : true
   }).done(function (data) {
+
       var parmdata = data.split(',');
       localStorage.setItem(parmdata[0],parmdata[1]);
 alert("送信に成功しました！\n返信があるまでしばらくお待ちください！");
