@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<title>ログイン処理中...</title>
+<script>
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+    var hmail = url.searchParams.get("h");
+    localStorage.setItem("h-mail",hmail);
+    var uuid = url.searchParams.get("uid");
+    localStorage.setItem("auth-uuid",uid);
+    
+    setTimeout(function(){location.href="https://shimohagi-works.haruharutv.jp";},1000);
+</script>
