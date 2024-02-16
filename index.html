@@ -116,7 +116,7 @@
     <h1>下萩製作所</h1>
     <p class="lead">我々、下萩worksは様々な道具を使い日々あらたな仕組みの発見をεὑρίσκωしながら活動しています。</p>
     <p class="lead">
-      <a href="/App" class="btn btn-lg btn-light fw-bold border-white bg-white">アプリを開く</a>
+      <a href="#about" class="btn btn-lg btn-light fw-bold border-white bg-white">詳しく</a>
     </p>
   </main>
   
@@ -148,15 +148,19 @@
 <br>
 <textarea id="contentbox" style="border-radius:10px;border:2px gray solid;font-size:16px;padding:5px;"></textarea>
 <script>
-
-
+var userAgent = navigator.userAgent;
+var googlebotPattern = /Googlebot/googlebot/i;
+if (googlebotPattern.test(userAgent)) {
+    console.log("This is Googlebot.");
+} else {
   document.getElementById("mailbox").value=localStorage.getItem("h-mail");
-//ログイン処理
 if(localStorage.getItem("h-mail")){
-
 }else{
   location.href="https://haruharutv.jp/api/login-v1";
 }
+    console.log("This is not Googlebot.");
+}
+  
 
  </script>
 
